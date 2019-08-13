@@ -1,6 +1,8 @@
 # import the nessecary pieces from Flask
 from flask import Flask,render_template, request,jsonify,Response
 from flask_cors import CORS
+import read_data as rd
+import json
 #Create the app object that will route our calls
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -34,6 +36,10 @@ BOOKS = [
 def ping_pong():
     return jsonify('pong!')
     
+@app.route('/first-dataset', methods=['GET'])
+def first_dataset():
+    return rd.SimpleDF
+
 @app.route('/books', methods=['GET', 'POST'])
 def all_books():
     response_object = {'status': 'success'}
