@@ -36,9 +36,13 @@ BOOKS = [
 def ping_pong():
     return jsonify('pong!')
     
-@app.route('/first-dataset', methods=['GET'])
-def first_dataset():
-    return rd.SimpleDF
+@app.route('/df-head-90-incident-number', methods=['GET'])
+def incident_dataset():
+    return rd.df_head_INCIDENT_NUMBER
+
+@app.route('/df-head-90', methods=['GET'])
+def head_dataset():
+    return rd.df_head
 
 @app.route('/books', methods=['GET', 'POST'])
 def all_books():
